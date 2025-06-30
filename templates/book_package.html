@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/book_package.css' %}">
+    <title>Book Package</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="menu-icon" id="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'packages' %}">Packages</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Package Name Section -->
+    {% if package %}
+    <div class="package-name">
+        Booking: {{ package.name }}
+    </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <form method="POST">
+        {% csrf_token %}
+        <label for="booking-date">Select a date:</label>
+        <input type="date" id="booking-date" name="booking_date" required>
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // JavaScript for toggling the menu
+            const menuIcon = document.getElementById('menu-icon');
+            const navLinks = document.getElementById('nav-links');
+
+            menuIcon.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Set the minimum date for the date input to today
+            const dateInput = document.getElementById('booking-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+                dateInput.setAttribute('min', today);
+            }
+        });
+    </script>
+</body>
+</html>

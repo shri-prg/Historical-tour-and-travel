@@ -1,0 +1,36 @@
+/* Styling for the <h1> with 3D effect */
+h1 {
+    font-size: 3rem; /* Large font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Main text color */
+    text-align: center; /* Center align the text */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 2px; /* Add spacing between letters */
+    position: relative; /* For the 3D shadow effect */
+    margin: 20px 0; /* Add spacing around the heading */
+    line-height: 1.2; /* Adjust line height */
+}
+
+/* 3D shadow effect */
+h1::before {
+    content: attr(data-text); /* Duplicate the text */
+    position: absolute;
+    top: 5px; /* Adjust the shadow position */
+    left: 5px; /* Adjust the shadow position */
+    color: #aaa; /* Shadow color */
+    z-index: -1; /* Place it behind the main text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Reduce font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem; /* Further reduce font size for very small screens */
+    }
+}

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/packages.css' %}">
+    <title>Available Packages</title>
+</head>
+<body>
+    <nav class="navbar fixed-top">
+        
+        
+        <h1>Travel Packages</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="navbar-menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'user_bookings' %}">My Bookings</a></li> <!-- Booking Option -->
+            <li class="username"><b>Hello, {{ user.first_name }}</b></li>
+            <li><a href="{% url 'logout' %}" class="login-button">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}" class="login-button">Login</a></li>
+            {% endif %}
+        </ul>
+        
+    </nav>
+
+    <main>
+        <div class="dropdown">
+            <label for="packages">Select a Historical Site:</label>
+            <select id="packages" onchange="scrollToSection(this.value)">
+                <option value="">--Select--</option>
+                {% for package in packages %}
+                    <option value="section-{{ package.id }}">{{ package.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <h2 id="avail">Available Packages</h2> 
+        {% for package in packages %}
+        <section id="section-{{ package.id }}">
+            <div class="image-container">
+                <img src="{{ package.image.url }}" alt="{{ package.name }}">
+            </div>
+            <div class="details-container">
+                <h2>{{ package.name }}</h2>
+            
+                <p>Price: &#8377;{{ package.price }}</p>
+                <ul>
+                    {% for detail in package.details.splitlines %}
+                        <li>{{ detail }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% if user.is_authenticated %}{% url 'book_package' package.id %}{% else %}{% url 'login' %}{% endif %}" class="btn">Book Now</a>
+            </div>
+        </section>
+        {% endfor %}
+    </main>
+
+    <script>
+        function scrollToSection(sectionId) {
+            if (sectionId) {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        function toggleMenu() {
+            document.getElementById("navbar-menu").classList.toggle("active");
+          }
+    </script>
+</body>
+</html>

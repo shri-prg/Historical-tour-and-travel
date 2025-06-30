@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+</head>
+<body>
+    <header>
+        <h1 class="main-heading">About Us</h1>
+        <nav>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list" id="nav-list">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'packages' %}">Packages</a></li> <!-- Added Packages link -->
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="aboutme">
+            <div class="aboutme-content">
+                <img src="{% static './image/about.jpg' %}" alt="Who We Are" class="aboutme-img">
+                <div class="aboutme-text">
+                    <h2>Meet Our Team</h2>
+                    <p>Welcome to UpYatra! We are a travel company dedicated to making your journeys memorable and hassle-free. Our team is passionate about helping you explore the rich history and culture of Uttar Pradesh.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>At Yatra, our mission is to immerse travelers in the rich tapestry of Uttar Pradesh's history and culture. We are dedicated to providing exceptional historical tour experiences that not only showcase the magnificent monuments and heritage sites of this vibrant state but also foster a deeper understanding of its historical significance.</p>
+        </div>
+        <div class="choose-us">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>Expert Knowledge of Uttar Pradesh's History</li>
+                <li>Curated Historical Experiences</li>
+                <li>Personalized Itineraries</li>
+                <li>Sustainable and Responsible Tourism</li>
+                <li>Exceptional Customer Service</li>
+            </ul>
+            <p>Choose UpYatra for your historical tours in Uttar Pradesh, and embark on a journey through time that will enrich your understanding of India's incredible heritage!</p>
+        </div>
+        <div class="historical-tours">
+            <h2>Our Historical Tours</h2>
+            <p>At UpYatra, we specialize in historical tours that take you to some of the most iconic sites in Uttar Pradesh. Our tours are designed for history enthusiasts and curious travelers alike. Here are some of the highlights:</p>
+            <ul>
+                <li><strong>The Taj Mahal:</strong> Discover the love story behind this magnificent monument and its architectural brilliance.</li>
+                <li><strong>Agra Fort:</strong> Explore the grandeur of this UNESCO World Heritage Site and learn about its historical significance.</li>
+                <li><strong>Fatehpur Sikri:</strong> Step into the past at this ancient city, once the capital of the Mughal Empire.</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Yatra. All rights reserved.</p>
+    </footer>
+    
+    <script src="{% static './js/about.js'%}"></script
+</body>
+</html>

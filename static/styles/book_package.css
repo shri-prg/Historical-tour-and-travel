@@ -1,0 +1,250 @@
+/* General Reset */
+body, h1, form, input, button, nav, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9; /* Light background for the entire page */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background: linear-gradient(90deg, #4CAF50, #2196F3); /* Gradient background for the navbar */
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Space between menu icon and links */
+    align-items: center;
+    padding: 20px 30px; /* Increased padding for a larger navbar */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+    height: 80px; /* Set a fixed height for the navbar */
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for dropdown */
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Menu Icon Styling */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-icon span {
+    background: white;
+    height: 3px;
+    width: 25px;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Package Name Section */
+.package-name {
+    margin-top: 100px; /* Space below the fixed navbar */
+    text-align: center;
+    font-size: 24px; /* Slightly larger font size */
+    font-weight: bold;
+    color: #4CAF50; /* Match the theme color */
+    padding: 15px 20px; /* Add padding for better spacing */
+    background: rgba(76, 175, 80, 0.1); /* Light green background for emphasis */
+    border: 2px solid #4CAF50; /* Add a border matching the theme color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: inline-block; /* Ensure it doesn't stretch across the page */
+    width: auto; /* Adjust width to fit content */
+}
+
+/* Main Content */
+main {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px; /* Add 30px margin from the top */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+    border-color: #4CAF50;
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background:linear-gradient(90deg, #4CAF50, #2196F3);; /* Dark background for dropdown */
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for dropdown */
+        transform: translateY(-200%);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li a {
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .menu-icon span:nth-child(1) {
+        transform-origin: top left;
+    }
+
+    .menu-icon span:nth-child(3) {
+        transform-origin: bottom left;
+    }
+
+    .menu-icon.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    .package-name {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .package-name {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    form {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

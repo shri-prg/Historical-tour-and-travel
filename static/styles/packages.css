@@ -1,0 +1,284 @@
+/* Reset margin and padding for the entire page */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure consistent box model */
+    font-family: Arial, sans-serif; /* Set a clean font */
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #4CAF50, #2196F3); /* Gradient background */
+    color: white;
+    padding: 15px 20px; /* Increased padding for a more spacious look */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex; /* Ensure proper alignment */
+    justify-content: space-around; /* Space out items */
+    align-items: center; /* Center items vertically */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar h1 {
+    font-size:40px;
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Increase spacing between items */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for clickable area */
+    border-radius: 25px; /* Rounded buttons */
+    background: rgba(255, 255, 255, 0.1); /* Subtle background for links */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.navbar ul li a:hover {
+    background: rgba(255, 255, 255, 0.3); /* Highlight on hover */
+    color: #000; /* Change text color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Dropdown styling */
+.dropdown {
+    margin: 140px auto 20px; /* Center dropdown and account for fixed navbar */
+    text-align: center; /* Center-align dropdown */
+}
+
+.dropdown label {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.dropdown select {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px; /* Adjust width for better visibility */
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.dropdown select:hover {
+    border-color: #4CAF50; /* Add hover effect for dropdown */
+}
+
+/* Section styling */
+section {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: flex; /* Align image and details side by side */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.image-container {
+    flex: 0 0 auto; /* Prevent image from growing */
+    width: 400px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Image container */
+.image-container img {
+    margin-top: 50px;
+    width: 400px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Crop the image to fit the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Details container */
+.details-container {
+    flex: 1; /* Take up remaining space */
+    text-align: left;
+}
+
+.details-container h2 {
+    text-align: center;
+    font-size: 48px;
+    color: #4A4A4A;
+    text-shadow: 2px 2px 4px #ddd, 4px 4px 2px #bbb;
+    margin-bottom: 20px;
+}
+
+
+.details-container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    margin: 0 0 10px 0;
+}
+
+.details-container ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 20px;
+    color: #555;
+}
+
+/* Button styling */
+section .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+section .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Ensure dropdown is visible on smaller screens */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column; /* Stack image and details vertically */
+        align-items: center;
+    }
+
+    section img {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .dropdown select {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Responsive styling */
+
+/* Small devices (max-width: 600px) */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dropdown select {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    .details-container p {
+        font-size: 18px;
+    }
+}
+
+/* Medium devices (max-width: 900px) */
+@media (max-width: 900px) {
+    .navbar ul {
+        gap: 10px;
+    }
+
+    section {
+        max-width: 95%;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    .details-container p {
+        font-size: 18px;
+    }
+}
+
+/* Styling for the Available Packages heading */
+#avail {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Hamburger toggle - hidden by default */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #4CAF50;
+        position: absolute;
+        top: 65px; /* Adjust to match navbar height */
+        left: 0;
+        z-index: 999;
+        padding: 10px 0;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar h1 {
+        font-size: 24px;
+    }
+}
